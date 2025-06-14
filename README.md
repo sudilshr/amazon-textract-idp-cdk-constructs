@@ -114,7 +114,6 @@ aws s3 cp s3://amazon-textract-public-content/constructs/en_textcat_demo-0.0.0.t
 
 In order to demonstrate this functionality, I have used below architecture where once the inbound email is delivered to your Amazon workmail inbox and if the pattern/s matches, it will invoke the rule action which is inovocation of a lambda function in this case. You can use my sample code to fetch the inbound email message body and parse it properly as text.
 
-![architecture](./images/Workmail_Lambda.png)
 
 
 ### Prerequisites
@@ -132,10 +131,7 @@ In order to demonstrate this functionality, I have used below architecture where
 
 To create an email flow rule, we need to specify a rule action to apply to an email when a specified pattern is matched. Follow the documenttion link [here](https://docs.aws.amazon.com/workmail/latest/adminguide/email-flows.html#email-flows-rule-actions) to create email flow rule for your organization which you created in step #1 above. you have to select Action=Run Lambda for your rule. Below is the email flow rule created by me:
 
-![Email Flow Rule](./images/email_rule_1.png)
 
 you can now follow documentation link [here](https://docs.aws.amazon.com/workmail/latest/adminguide/email-flows.html#email-flows-patterns) to create pattern/s which need to be satisfied first in order to invoke the rule action (in this case it will invoke our lambda function). For this sample code functionality I have used my email address as pattern in 'origns' and my domain as pattern in 'destinations'. so in this case the lambda function will only be invoke if inbound email sender is my email address and destination is my domain only but you can set patterns as per your requirements. Below screen shots depicts my patterns:
 
-![Origin pattern](./images/email_rule_2.png)
 
-![Destnation pattern](./images/email_rule_3.png)
